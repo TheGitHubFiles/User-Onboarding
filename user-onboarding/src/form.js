@@ -42,7 +42,13 @@ export default function Form(props) {
     }
     const doSubmit = evt => {
         evt.preventDefault()
-        submit(form)
+
+        submit({
+            ...form,
+            user: form.user.trim(),
+            email: form.email.trim(),
+            password: form.password.trim()
+        })
         setForm(startValues)
 
 
@@ -56,12 +62,6 @@ export default function Form(props) {
 
     return (
         <div>
-            <div className='red'>
-                <div>{error.user}</div>
-                <div>{error.email}</div>
-                <div>{error.password}</div>
-                <div>{error.agree}</div>
-            </div>
             <form onSubmit={doSubmit}>
                 <label>Name
                     <input onChange={change}
@@ -93,6 +93,12 @@ export default function Form(props) {
                 </label>
                 <button disabled={disabled}>Submit</button>
             </form>
+            <div className='red'>
+                <div>{error.user}</div>
+                <div>{error.email}</div>
+                <div>{error.password}</div>
+                <div>{error.agree}</div>
+            </div>
         </div >
     )
 }
