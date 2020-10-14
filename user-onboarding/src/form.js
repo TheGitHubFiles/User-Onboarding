@@ -91,7 +91,7 @@ export default function Form(props) {
                         type='checkbox'>
                     </input>
                 </label>
-                <button disabled={disabled}>Submit</button>
+                <button name='submit' disabled={disabled}>Submit</button>
             </form>
             <div className='red'>
                 <div>{error.user}</div>
