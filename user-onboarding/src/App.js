@@ -11,7 +11,7 @@ function App() {
   const submit = e => {
 
     axios
-      .post('https://reqres.in/api/users', user)
+      .post('https://reqres.in/api/users', e)
       .then(res => {
         setUser([...user, e])
       })
